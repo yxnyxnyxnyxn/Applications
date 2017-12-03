@@ -95,7 +95,7 @@ This example is provided with two popular compression benchmarks.
 ### Hardware
 
 ```
-  make all TARGETS=hw 
+  make all TARGETS=hw DEVICES=$AWS_PLATFORM
 
   Note: This command compiles for hardware execution. It generates kernel binary ".xclbin" file. 
         This file is placed in ./xclbin directory under GZip folder. To execute it on AWS F1 instance, 

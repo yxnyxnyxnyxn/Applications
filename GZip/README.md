@@ -124,12 +124,13 @@ This section presents various steps involved to generate encode and decode outpu
 
 This section presents sample output format produced by this application for a given input file. Below is the result of executing one of the silesia benchmark input files in software emulation mode.
 
-
 ```
 ------------------------------------------------------------------------------
 
 E2E(MBps)  KT(MBps)   CR      STATUS   File Size(MB)   File Name
-0.10       0.10       2.09    PASSED   33.6            ./benchmark/silesia/nci
+
+1290.73    3331.64    3.31    PASSED   33.6            ./benchmark/silesia/nci
+1234.91    3505.20    1.87    PASSED   51.2            ./benchmark/silesia/mozilla
 
 -------------------------------------------------------------------------------
 
@@ -140,7 +141,7 @@ STATUS    - Test case validation status
 File Size - Input file size in MBs
 File Name - Input file name
 
-Note: In software emulation throughput is expected to be low. 
+Note: Sample results presented above are produced by executing this application on real hardware (AWS F1)
 ```
   
 

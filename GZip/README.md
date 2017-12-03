@@ -85,7 +85,7 @@ This example is provided with two popular compression benchmarks.
 
 ### Emulation flows
 ```
-  make check TARGETS=<sw_emu/hw_emu>
+  make check TARGETS=<sw_emu/hw_emu> DEVICES=$AWS_PLATFORM
   
   Note: This command compiles for targeted emulation mode and executes the
         application. To execute it on AWS F1 instance, please follow instructions

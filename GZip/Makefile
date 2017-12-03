@@ -82,4 +82,4 @@ CHECKS=check
 
 include $(COMMON_REPO)/utility/rules.mk
 
-EXTRA_CLEAN=benchmark/*.huffman ./benchmark/*/*.huffman ./benchmark/*.orig ./benchmark/*/*.orig ./benchmark/*.lz77 ./benchmark/*/*.lz77
+EXTRA_CLEAN=benchmark/*.huffman ./benchmark/*/*.huffman ./benchmark/*.orig ./benchmark/*/*.orig ./benchmark/*.lz77 ./benchmark/*/*.lz77 ./benchmark/*/*.xgzip

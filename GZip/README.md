@@ -94,10 +94,13 @@ This example is provided with two popular compression benchmarks.
 ```
 ### Hardware
 
-Command below compiles for hardware execution. It generates kernel binary ".xclbin" file. This file is placed in ./xclbin directory under GZip folder. To execute it on AWS F1 instance, please follow instructions specific to AWS F1 deployment process.
-
 ```
   make all TARGETS=hw 
+
+  Note: Command below compiles for hardware execution. It generates kernel binary ".xclbin" file. 
+        This file is placed in ./xclbin directory under GZip folder. To execute it on AWS F1 instance, 
+        please follow instructions specific to AWS F1 deployment process.
+
 ```
 
 

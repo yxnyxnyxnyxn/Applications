@@ -26,6 +26,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <vector>
 #include "cmdlineparser.h"
 
+long xgzip_enc = 0 ;
+
 uint32_t lz77_encode_top(const char *inFile_name, xil_lz77& lz77) 
 {
     FILE *inFile  = NULL;
@@ -168,6 +170,20 @@ void huffman_decode(const char *inFile_name) {
     char huff_cmd_decode[512];
     string huff_cmp = inFile_name;
     huff_cmp = huff_cmp + "encode.xgzip";
+    
+    FILE *inFile  = NULL;
+    inFile  = fopen(huff_cmp.c_str(), "rb");
+    
+    // Find file size
+    fseek(inFile, 0, SEEK_END);
+    long input_size = ftell(inFile);
+    rewind(inFile);
+
+    // xgzip_enc update actual size
+    xgzip_enc = input_size;
+
+    fclose(inFile);
+
     string huff_dec = inFile_name;
     huff_dec = huff_dec + "decode.huffman";
     snprintf(huff_cmd_decode, sizeof(huff_cmd_decode), "./huffman -d -i %s -o %s",huff_cmp.c_str(),huff_dec.c_str()); 
@@ -214,7 +230,7 @@ int process(std::string & inFile_name, xil_lz77& lz77)
     float size_in_mb = (float)input_size/1000000;
     std::cout.precision(3);
     std::cout << "\t\t" 
-         << ((float)debytes/enbytes) << "\t\t"; 
+         << ((float)debytes/xgzip_enc) << "\t\t"; 
     std::cout.precision(3);
     std::cout  << (ret ? "FAILED\t": "PASSED\t")<< "\t" << size_in_mb << "\t\t\t" << inFile_name << std::endl; 
     return ret;

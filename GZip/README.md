@@ -122,7 +122,7 @@ This section presents various steps involved to generate encode and decode outpu
 
 #### Sample Result 
 
-This section presents sample output format produced by this application for a given input file. Below is the result of executing one of the silesia benchmark input files in software emulation mode.
+This section presents sample output format produced by this application for a given input file. Below is the result of executing couple of the silesia benchmark input files on AWS platform (hardware)
 
 ```
 ------------------------------------------------------------------------------

@@ -210,13 +210,14 @@ int process(std::string & inFile_name, xil_lz77& lz77)
 int main(int argc, char *argv[])
 {
     std::string binaryFileName = "gZip_" + std::to_string(COMPUTE_UNITS) + "cu";
-    xil_lz77 lz77;
-    lz77.init(binaryFileName);
     
     sda::utils::CmdLineParser parser;
-    parser.addSwitch("--input_file",    "-i",       "input data flie",        "");
+    parser.addSwitch("--input_file",    "-i",       "input data file",        "");
     parser.addSwitch("--file_list",     "-l",       "List of Input Files",    "");
     parser.parse(argc, argv);
+    
+    xil_lz77 lz77;
+    lz77.init(binaryFileName);
 
     std::string infile      = parser.value("input_file");   
     std::string filelist    = parser.value("file_list");   
@@ -236,6 +237,7 @@ int main(int argc, char *argv[])
         cout << "TEST " << (ret ? "FAILED": "PASSED") << endl; 
     }  else{
         parser.printHelp();
+    	lz77.release();
         exit(EXIT_FAILURE);
     }
     lz77.release();

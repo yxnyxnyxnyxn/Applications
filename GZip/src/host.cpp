@@ -218,7 +218,8 @@ int process(std::string & inFile_name, xil_lz77& lz77)
     std::cout.precision(3);
     std::cout  << (ret ? "FAILED\t": "PASSED\t")<< "\t" << size_in_mb << "\t\t\t" << inFile_name << std::endl; 
     return ret;
-}  
+} 
+ 
 int main(int argc, char *argv[])
 {
     std::string binaryFileName = "gZip_" + std::to_string(COMPUTE_UNITS) + "cu";
@@ -233,16 +234,19 @@ int main(int argc, char *argv[])
 
     std::string infile      = parser.value("input_file");   
     std::string filelist    = parser.value("file_list");   
-    std::cout<<"\n";
-    std::cout<<"E2E(MBps)\tKT(MBps)\tCR\t\tSTATUS\t\tFile Size(MB)\t\tFile Name"<<std::endl;
-    std::cout<<"\n";
     if (!filelist.empty()) {
+        std::cout<<"\n";
+        std::cout<<"E2E(MBps)\tKT(MBps)\tCR\t\tSTATUS\t\tFile Size(MB)\t\tFile Name"<<std::endl;
+        std::cout<<"\n";
         std::ifstream infilelist(filelist.c_str());
         std::string line;
         while(std::getline(infilelist,line)){
             process(line,lz77);
         }
     }else if (!infile.empty()){
+        std::cout<<"\n";
+        std::cout<<"E2E(MBps)\tKT(MBps)\tCR\t\tSTATUS\t\tFile Size(MB)\t\tFile Name"<<std::endl;
+        std::cout<<"\n";
 
         std::string inFile_name = argv[1];
         int ret = process(infile,lz77);   

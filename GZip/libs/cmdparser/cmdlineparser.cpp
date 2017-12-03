@@ -234,7 +234,9 @@ int CmdLineParser::parse(int argc, char* argv[]) {
 			ctOptions++;
 
 			if(key == "--help") {
+				//printf("Reached help prints \n");
 				printHelp();
+				exit(EXIT_FAILURE);
 				return 1;
 			}
 

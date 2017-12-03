@@ -124,6 +124,12 @@ int lz77_decode_top(const std::string& inFile_name,uint32_t enbytes) {
     free(decode_in);
     free(decode_out);
 
+    char decodehuff_remove[512];
+    string dhuff_cmp = inFile_name;
+    dhuff_cmp = dhuff_cmp + "decode.huffman";
+    snprintf(decodehuff_remove, sizeof(decodehuff_remove), "rm %s", dhuff_cmp.c_str());
+    system(decodehuff_remove);
+
     return debytes;
 }
 
@@ -141,9 +147,15 @@ void huffman_encode(const char *input) {
     // Huffman encoding
     char huff_cmd_encode[512];
     string huff_cmp = inFile_name;
-    huff_cmp = huff_cmp + "encode.huffman";
+    huff_cmp = huff_cmp + "encode.xgzip";
     snprintf(huff_cmd_encode, sizeof(huff_cmd_encode), "./huffman -c -i %s -o %s",outFile_name.c_str(),huff_cmp.c_str()); 
     system(huff_cmd_encode);
+
+    char lz77_remove_encode[512];
+    string lz77_cmp = inFile_name;
+    lz77_cmp = lz77_cmp + "encode.lz77";
+    snprintf(lz77_remove_encode, sizeof(lz77_remove_encode), "rm %s", lz77_cmp.c_str());
+    system(lz77_remove_encode);
 
 }
 
@@ -155,7 +167,7 @@ void huffman_decode(const char *inFile_name) {
     // Huffman decoding
     char huff_cmd_decode[512];
     string huff_cmp = inFile_name;
-    huff_cmp = huff_cmp + "encode.huffman";
+    huff_cmp = huff_cmp + "encode.xgzip";
     string huff_dec = inFile_name;
     huff_dec = huff_dec + "decode.huffman";
     snprintf(huff_cmd_decode, sizeof(huff_cmd_decode), "./huffman -d -i %s -o %s",huff_cmp.c_str(),huff_dec.c_str()); 

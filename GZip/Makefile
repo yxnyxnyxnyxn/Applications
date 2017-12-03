@@ -14,7 +14,8 @@ include $(COMMON_REPO)/libs/cmdparser/cmdparser.mk
 include $(COMMON_REPO)/libs/logger/logger.mk
 
 NCU:=$(COMPUTE_UNITS)cu
-HOST_NAME:=host_$(NCU)
+#HOST_NAME:=xgzip_$(NCU)
+HOST_NAME:=xgzip
 XO1_NAME:=gZip_cu1
 XO2_NAME:=gZip_cu2
 XO3_NAME:=gZip_cu3

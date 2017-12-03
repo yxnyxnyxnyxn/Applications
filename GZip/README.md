@@ -105,6 +105,8 @@ This example is provided with two popular compression benchmarks.
 
 ### Expected Output
 
+This section presents various steps involved to generate encode and decode output. 
+
 ```
 1. Encode input file 
    a. LZ77 (FPGA) encode
@@ -113,9 +115,9 @@ This example is provided with two popular compression benchmarks.
 3. Decode (.xgzip) file generated in previous steps
    a. Huffman & LZ77 (CPU) decode
 4. Generate original file (.orig) format
-5. Validate the correctness by comparing (input file & .orig file) 
-   a. PASSED: If status is passed it means both files matches
-   b. FAILED: If status is failed it means there is mismatch
+5. Validate results (input file & .orig file) 
+   a. PASSED: Status is passed it means both files matches
+   b. FAILED: Status is failed it means there is mismatch
 ```
 
   

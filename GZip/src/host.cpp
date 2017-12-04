@@ -241,15 +241,15 @@ int main(int argc, char *argv[])
     std::string binaryFileName = "gZip_" + std::to_string(COMPUTE_UNITS) + "cu";
     
     sda::utils::CmdLineParser parser;
-    parser.addSwitch("--input_file",    "-i",       "input data file",        "");
-    parser.addSwitch("--file_list",     "-l",       "List of Input Files",    "");
+    parser.addSwitch("--input_file",    "-i",       "Input data file",        "");
+    parser.addSwitch("--file_list ",    "-l",       "List of Input Files",    "");
     parser.parse(argc, argv);
     
     xil_lz77 lz77;
     lz77.init(binaryFileName);
 
     std::string infile      = parser.value("input_file");   
-    std::string filelist    = parser.value("file_list");   
+    std::string filelist    = parser.value("file_list ");   
     if (!filelist.empty()) {
         std::cout<<"\n";
         std::cout<<"E2E(MBps)\tKT(MBps)\tCR\t\tSTATUS\t\tFile Size(MB)\t\tFile Name"<<std::endl;

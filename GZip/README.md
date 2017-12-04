@@ -105,7 +105,7 @@ This example is provided with two popular compression benchmarks.
 
 ### Expected Output
 
-This section presents various steps involved to generate encode and decode output. 
+This section presents various steps involved to generate encode and decode output. The encoded stream of this example is not compatible with standard GZip implementation at the moment and kindly make use of custom decoder provided with this example.
 
 ```
 1. Encode input file 
